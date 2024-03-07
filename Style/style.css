@@ -1,184 +1,443 @@
-body {
-    background: linear-gradient(90deg, rgb(166, 94, 80) 0%, rgb(90, 203, 62) 100%);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-}
+const data = [
+  {
+    id: 1,
+    question: "Is cow have 4 legs?",
+    answer: ["Yes", "No"],
+    correct: [0],
+  },
+  {
+    id: 2,
+    question: "Is cow have 2 legs?",
+    answer: ["Yes", "No"],
+    correct: [1],
+  },
+  {
+    id: 3,
+    question: "What is the capital of Italy?",
+    answer: ["Yes", "No"],
+    correct: [0],
+  },
+  {
+    id: 4,
+    question: "What is the capital of France?",
+    answer: ["Yes", "No"],
+    correct: [0],
+  },
+  {
+    id: 5,
+    question: "What is the capital of Germany?",
+    answer: ["Yes", "No"],
+    correct: [0],
+  },
+  {
+    id: 6,
+    question: "What is the capital of Italy?",
+    answer: ["Yes", "No"],
+    correct: [0],
+  },
+  {
+    id: 7,
+    question: "What is the capital of France?",
+    answer: ["Yes", "No"],
+    correct: [0],
+  },
+  {
+    id: 8,
+    question: "What is the capital of Germany?",
+    answer: ["Yes", "No"],
+    correct: [0],
+  },
+  {
+    id: 9,
+    question: "What is the capital of Italy?",
+    answer: ["Yes", "No"],
+    correct: [0],
+  },
+  {
+    id: 10,
+    question: "What is the capital of France?",
+    answer: ["Yes", "No"],
+    correct: [0],
+  },
+  {
+    id: 11,
+    question: "What is the capital of Germany?",
+    answer: ["Paris", "Berlin", "Rome", "London"],
+    correct: [1],
+  },
+  {
+    id: 12,
+    question: "What is the capital of Italy?",
+    answer: ["Paris", "Berlin", "Rome", "London"],
+    correct: [2],
+  },
+  {
+    id: 13,
+    question: "What is the capital of France?",
+    answer: ["Paris", "Berlin", "Rome", "London"],
+    correct: [0],
+  },
+  {
+    id: 14,
+    question: "What is the capital of Germany?",
+    answer: ["Paris", "Berlin", "Rome", "London"],
+    correct: [1],
+  },
+  {
+    id: 15,
+    question: "What is the capital of Italy?",
+    answer: ["Paris", "Berlin", "Rome", "London"],
+    correct: [2],
+  },
+  {
+    id: 16,
+    question: "What is the capital of France?",
+    answer: ["Paris", "Berlin", "Rome", "London"],
+    correct: [0],
+  },
+  {
+    id: 17,
+    question: "What is the capital of Germany?",
+    answer: ["Paris", "Berlin", "Rome", "London"],
+    correct: [1],
+  },
+  {
+    id: 18,
+    question: "What is the capital of Italy?",
+    answer: ["Paris", "Berlin", "Rome", "London"],
+    correct: [2],
+  },
+  {
+    id: 19,
+    question: "What is the capital of France?",
+    answer: ["Paris", "Berlin", "Rome", "London"],
+    correct: [0],
+  },
+  {
+    id: 20,
+    question: "What is the capital of Germany?",
+    answer: ["Paris", "Berlin", "Rome", "London"],
+    correct: [1],
+  },
+  {
+    id: 21,
+    question: "What animal have 4 legs?",
+    answer: ["cat", "dog", "fish", "bird"],
+    correct: [0, 1],
+  },
+  {
+    id: 22,
+    question: "What animal have 2 legs?",
+    answer: ["cat", "dog", "fish", "bird"],
+    correct: [2, 3],
+  },
+  {
+    id: 23,
+    question: "What animal have 0 legs?",
+    answer: ["cat", "dog", "fish", "bird"],
+    correct: [2, 3],
+  },
+  {
+    id: 24,
+    question: "What animal have 4 legs?",
+    answer: ["cat", "dog", "fish", "bird"],
+    correct: [0, 1],
+  },
+  {
+    id: 25,
+    question: "What animal have 2 legs?",
+    answer: ["cat", "dog", "fish", "bird"],
+    correct: [2, 3],
+  },
+  {
+    id: 26,
+    question: "What animal have 0 legs?",
+    answer: ["cat", "dog", "fish", "bird"],
+    correct: [2, 3],
+  },
+  {
+    id: 27,
+    question: "What animal have 0 legs?",
+    answer: ["cat", "dog", "fish", "bird"],
+    correct: [2, 3],
+  },
+  {
+    id: 28,
+    question: "What animal have 4 legs?",
+    answer: ["cat", "dog", "fish", "bird"],
+    correct: [0, 1],
+  },
+  {
+    id: 29,
+    question: "What animal have 2 legs?",
+    answer: ["cat", "dog", "fish", "bird"],
+    correct: [2, 3],
+  },
+  {
+    id: 30,
+    question: "What animal have 0 legs?",
+    answer: ["cat", "dog", "fish", "bird"],
+    correct: [2, 3],
+  },
+  {
+    id: 31,
+    question: "What is capital of France?",
+    correct: "London",
+  },
+  {
+    id: 32,
+    question: "What is capital of Germany?",
+    correct: "Berlin",
+  },
+  {
+    id: 33,
+    question: "What is capital of Italy?",
+    correct: "Rome",
+  },
+  {
+    id: 34,
+    question: "What is capital of France?",
+    correct: "Paris",
+  },
+  {
+    id: 35,
+    question: "What is capital of Germany?",
+    correct: "Berlin",
+  },
+  {
+    id: 36,
+    question: "What is capital of Italy?",
+    correct: "Rome",
+  },
+  {
+    id: 37,
+    question: "What is capital of France?",
+    correct: "Paris",
+  },
+  {
+    id: 38,
+    question: "What is capital of Germany?",
+    correct: "Berlin",
+  },
+  {
+    id: 39,
+    question: "What is capital of Italy?",
+    correct: "Rome",
+  },
+  {
+    id: 40,
+    question: "What is capital of France?",
+    correct: "Paris",
+  },
+];
 
-.content {
-    position: fixed;
-    scroll-behavior: smooth;
-    width: 20vw;
-    height: fit-content;
-    box-sizing: border-box;
-    padding: 2rem;
-    margin: 2rem;
-    border-radius: 1rem;
-    background-color: rgb(245, 245, 245);
-    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
-    margin-left: -20vw;
-
-}
-
-ul.ulcontent li {
-    width: auto;
-}
-
-h1 {
-    text-align: center;
-}
-
-form {
-    width: 50vw;
-    box-sizing: border-box;
-    padding: 2rem;
-    margin: 2rem;
-    border-radius: 1rem;
-    background-color: rgb(245, 245, 245);
-    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
-}
-
-.description {
-    padding: 10px;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    background-color: rgb(201, 176, 163);
-    border-radius: 1rem;
-    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.1);
-}
-
-.description pre {
-    font-family: monospace;
-    font-size: 16px;
-    line-height: 1.5;
-    white-space: pre-wrap;
-    overflow: auto;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-li {
-    margin: 1rem 0;
-    background-color: rgb(254, 234, 233);
-    padding: 1rem;
-    border-radius: 1rem;
-    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.1);
-
-    div:first-child {
-        margin: 0 0 0.5rem 0;
+const LoadData = () => {
+  questionList = document.getElementById("question-list");
+  for (let i = 0; i < data.length; i++) {
+    if (i < 10) {
+      if (i === 0)
+        questionList.innerHTML += `<h3 id="type1" >Type 1: True/False<h3>`;
+      questionList.innerHTML += TrueFalseQuestion(data[i]);
+    } else if (i < 20) {
+      if (i === 10)
+        questionList.innerHTML += `<h3 id="type2">Type 2: Chose on<h3>`;
+      questionList.innerHTML += OneCorrectQuestion(data[i]);
+    } else if (i < 30) {
+      if (i === 20)
+        questionList.innerHTML += `<h3 id="type3">Type 3: Multiple choice<h3>`;
+      questionList.innerHTML += MultipleCorrectQuestion(data[i]);
+    } else if (i < 40) {
+      if (i === 30) questionList.innerHTML += `<h3 id="type4">Type 4: Text<h3>`;
+      questionList.innerHTML += TextQuestion(data[i]);
     }
+  }
+};
 
-    input[type="text"] {
-        padding: 0.3rem;
-        width: 50%;
+const TrueFalseQuestion = (data) => {
+  return ` 
+            
+            <li style="background-color:#dff2a6">
+                <div class="question"> ${"Cau " + data.id + ": "} ${data.question
+    }</div>
+                <div class="answer">
+                    <input type="radio" name="answer-question-${data.id
+    }" value="0">${data.answer[0]}
+                    <input type="radio" name="answer-question-${data.id
+    }" value="1">${data.answer[1]}
+            </li>
+            `;
+};
+const OneCorrectQuestion = (data) => {
+  return `
+            
+            <li style="background-color:#d2f9f9">
+                <div class="question"> ${"Cau " + data.id + ": "} ${data.question}</div>
+                <div class="answer">
+                    <input type="radio" name="answer-question-${data.id}" value="0">${data.answer[0]}
+                    <input type="radio" name="answer-question-${data.id
+    }" value="1">${data.answer[1]}
+                    <input type="radio" name="answer-question-${data.id
+    }" value="2">${data.answer[2]}
+                    <input type="radio" name="answer-question-${data.id
+    }" value="3">${data.answer[3]}
+            </li>
+            `;
+};
+const MultipleCorrectQuestion = (data) => {
+  return `
+            
+            <li style="background-color:#d2e9f9">
+                <div class="question"> ${"Cau " + data.id + ": "} ${data.question
+    }</div>
+                <div class="answer">
+                    <input type="checkbox" name="answer-question-${data.id
+    }" value="0">${data.answer[0]}
+                    <input type="checkbox" name="answer-question-${data.id
+    }" value="1">${data.answer[1]}
+                    <input type="checkbox" name="answer-question-${data.id
+    }" value="2">${data.answer[2]}
+                    <input type="checkbox" name="answer-question-${data.id
+    }" value="3">${data.answer[3]}
+            </li>
+            `;
+};
+const TextQuestion = (data) => {
+  return `
+        
+        <li style="background-color:#f9f2d2">
+            <div class="question"> ${"Cau " + data.id + ": "} ${data.question
+    }</div>
+            <div class="answer">
+                <input type="text" name="answer-question-${data.id
+    }" value="" placeholder="Type your answer">
+        </li>
+        `;
+};
+
+document.getElementById("submit").addEventListener("click", (e) => {
+  e.preventDefault();
+  // CheckAnswer();
+});
+
+let score = 0;
+const CheckAnswer = () => {
+  document.querySelectorAll("input").forEach((item) => {
+    item.disabled = true;
+  });
+  for (let i = 1; i < data.length + 1; i++) {
+    if (i < 30) {
+      let answer = document.querySelectorAll(
+        `input[name="answer-question-${i}"]:Checked`
+      );
+      let yourAnswer = [];
+      for (let j = 0; j < answer.length; j++) {
+        yourAnswer.push(answer[j].value);
+      }
+      if (yourAnswer.length == 0) continue;
+      let correct = data[i - 1].correct;
+      if (CheckList(yourAnswer, correct)) {
+        score++;
+      }
+    } else {
+      let answer = document.querySelector(
+        `input[name="answer-question-${i}"]`
+      ).value;
+      let correct = data[i - 1].correct;
+      if (answer == correct) {
+        score++;
+      }
     }
-}
+  }
+  console.log(score);
+  document.getElementById("score").innerHTML = "Your score: " + score;
+};
 
-.infor {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    background-color: rgb(255, 224, 207);
-    border-radius: 1rem;
-    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.1);
+const CheckList = (yourAnswer, correct) => {
+  if (yourAnswer.length != correct.length) return false;
+  for (let i = 0; i < yourAnswer.length; i++) {
+    if (correct.indexOf(Number(yourAnswer[i])) == -1) return false;
+  }
+  return true;
+};
 
-    label {
-        margin: 0.5rem 0;
-        display: grid;
-        grid-template-columns: 25% 75%;
-        align-items: center;
+// const submitBtn = document.getElementById('submit');
+// const confirmPopup = document.getElementById('result-popup');
+// const resultPopup = document.getElementById('result-popup');
+// const confirmYesBtn = document.getElementById('confirm-yes');
+// const confirmNoBtn = document.getElementById('confirm-no');
+
+// // Hiển thị popup xác nhận submit khi click vào nút "Submit"
+// submitBtn.addEventListener('click', () => {
+// //   confirmPopup.classList.remove('hidden');
+//   document.getElementById('score').textContent = `Your score: ${score}`;
+// });
+
+// // Ẩn popup xác nhận submit khi click vào nút "Không"
+// confirmNoBtn.addEventListener('click', () => {
+//   confirmPopup.classList.add('hidden');
+// });
+
+// // Hiển thị popup thông báo submit thành công và tính điểm khi click vào nút "Có"
+// confirmYesBtn.addEventListener('click', () => {
+//   // Hiển thị điểm (score)
+//   document.getElementById('score').textContent = `Your score: ${score}`;
+
+//   confirmPopup.classList.add('hidden');
+//   resultPopup.classList.remove('hidden');
+// });
+
+const form = document.getElementById("question-form");
+const results = document.getElementById("survey-results");
+let count = 0;
+var radioInputs = document.querySelectorAll('input[type="radio"]');
+console.log(radioInputs);
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  // Collect answers into an object
+  const answers = {};
+  answers.name = form.getElementsByName["name"]?.value;
+  answers.dob = form.getElementsByName["date"]?.value;
+  answers.cccd = form.getElementsByName["cccd"]?.value;
+
+  // Iterate through remaining answer elements and add them to the object
+  for (let i = 1; i <= 40; i++) {
+    const answerElement = form.getElementsByName[`answer-question-${i}`];
+    if (answerElement) {
+      answers[`answer-${i}`] = answerElement.value;
+      count+=1
     }
+  }
 
-    input {
-        width: 40%;
-        padding: 0.3rem;
-        border-radius: 8px;
-        color: black;
-        font-size: 16px;
-        border: 1px solid #ccc;
-        padding: 5px;
+  // Create the question list using a loop and string concatenation
+  let questionList = "";
+  for (let i = 1; i <= 40; i++) {
+    const answer = answers[`answer-${i}`];
+    if (answer) {
+      questionList += `<li>Question ${i}: ${answer}</li>`;
     }
+  }
 
-    input[type="date"] {
-        width: 150px;
-    }
+  // Update the results with the collected data
+  results.innerHTML = `
+    <h2>Your survey result:</h2>
+    <p>Name: ${answers.name}</p>
+    <p>Date of birth: ${answers.dob}</p>
+    <p>Identity Number: ${answers.cccd}</p>
+    <p>Address: ${addr}</p>
 
-    input[type="text"] {
-        width: 200px;
-    }
+    <ul>
+      ${questionList}
+    </ul>
+  `;
+
+  // Increment submission count
+  count++;
+  console.log(questionList)
+});
+console.log(results)
+console.log(count);
+
+function appear() {
+  document.getElementById("secret").innerHTML="Your result: 17/40";
 }
-
-.answer input[name^="answer-question-"] {
-    border: 1px solid #ccc;
-    padding: 5px;
-    font-size: 16px;
-    border-radius: 5px;
-}
-
-#submit1 {
-    position: fixed;
-    bottom: 2%;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 1rem 0 0 0;
-    padding: 0.5rem 2rem;
-    font-size: 1.5rem;
-    background-color: rgb(255, 255, 255);
-    border-radius: 0.5rem;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.1);
-}
-
-#submit1:hover {
-    background-color: rgb(255, 100, 100);
-    color: rgb(255, 255, 255);
-}
-
-a {
-    text-decoration: none;
-    color: black
-}
-
-
-.hidden {
-    display: none;
-}
-
-/* .bao {
-    position: fixed;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 100;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-} */
-
-/* .popup p {
-    margin-bottom: 10px;
-}
-
-.popup button {
-    margin: 5px;
-    padding: 5px 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#score {
-    font-weight: bold;
-}  */
