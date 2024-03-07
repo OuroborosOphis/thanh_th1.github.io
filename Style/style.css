@@ -122,8 +122,9 @@ li {
     border-radius: 5px;
 }
 
-#submit {
-    position: relative;
+#submit1 {
+    position: fixed;
+    bottom: 2%;
     left: 50%;
     transform: translateX(-50%);
     margin: 1rem 0 0 0;
@@ -138,7 +139,7 @@ li {
     box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.1);
 }
 
-#submit:hover {
+#submit1:hover {
     background-color: rgb(255, 100, 100);
     color: rgb(255, 255, 255);
 }
@@ -153,7 +154,7 @@ a {
     display: none;
 }
 
-.bao {
+/* .bao {
     position: fixed;
     top: 30%;
     left: 50%;
@@ -163,7 +164,7 @@ a {
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #fff;
-}
+} */
 
 /* .popup p {
     margin-bottom: 10px;
